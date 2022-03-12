@@ -1,17 +1,45 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import normalize from "styled-normalize";
+import { mainTheme } from "./theme";
+import { QueryClient, QueryClientProvider } from "react-query";
 
+const client = new QueryClient();
+
+const GlobalStyle = createGlobalStyle`
+  ${normalize}
+
+  html{
+    overflow-x: hidden;
+  }
+  *{
+    color:${(props) => props.theme.fontColor};
+    box-sizing: border-box;
+  }
+  body{
+    background-color: ${(props) => props.theme.bgColor};
+  }
+  li{
+    list-style:none;
+  }
+  a{
+    text-decoration:none;
+    color:inherit;
+  }
+  div{
+    display:block;
+  }
+`;
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <QueryClientProvider client={client}>
+      <ThemeProvider theme={mainTheme}>
+        <GlobalStyle />
+        <App />
+      </ThemeProvider>
+    </QueryClientProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
