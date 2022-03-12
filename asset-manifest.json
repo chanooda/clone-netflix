@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/canban-react/static/js/main.09a427ca.js",
-    "index.html": "/canban-react/index.html",
-    "main.09a427ca.js.map": "/canban-react/static/js/main.09a427ca.js.map"
+    "main.js": "/clone-netflix/static/js/main.7264c075.js",
+    "index.html": "/clone-netflix/index.html",
+    "main.7264c075.js.map": "/clone-netflix/static/js/main.7264c075.js.map"
   },
   "entrypoints": [
-    "static/js/main.09a427ca.js"
+    "static/js/main.7264c075.js"
   ]
 }
